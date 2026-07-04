@@ -1,17 +1,14 @@
 const mongoose = require('mongoose');
 
-let mongoServer;
+
 
 const connectDB = async () => {
   try {
     let mongoUri = process.env.MONGODB_URI;
 
     if (!mongoUri) {
-      console.log('No MONGODB_URI found. Starting mongodb-memory-server...');
-      const { MongoMemoryServer } = require('mongodb-memory-server');
-      mongoServer = await MongoMemoryServer.create();
-      mongoUri = mongoServer.getUri();
-      console.log(`In-memory MongoDB started at: ${mongoUri}`);
+      console.error('CRITICAL: MONGODB_URI environment variable is missing.');
+      process.exit(1);
     }
 
     const conn = await mongoose.connect(mongoUri);
@@ -68,9 +65,6 @@ const connectDB = async () => {
 const disconnectDB = async () => {
   try {
     await mongoose.disconnect();
-    if (mongoServer) {
-      await mongoServer.stop();
-    }
   } catch (error) {
     console.error(`Error disconnecting MongoDB: ${error.message}`);
   }
