@@ -10,9 +10,9 @@ services:
       - key: NODE_ENV
         value: production
       - key: JWT_SECRET
-        value: supersecretkeyrestaurant123!@#
+        generateValue: true
       - key: MONGODB_URI
-        value: mongodb+srv://new-user:SYhDLwJ3v51O9kTm@cluster0.s6vpok1.mongodb.net/?appName=Cluster0
+        sync: false
 
   # Frontend Static Site
   - type: web
