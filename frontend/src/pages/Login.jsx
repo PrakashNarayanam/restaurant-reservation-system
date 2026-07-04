@@ -118,13 +118,7 @@ const Login = () => {
           </Link>
         </div>
 
-        <div style={{ marginTop: '2rem', padding: '1rem', background: 'rgba(0,0,0,0.02)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-card)', fontSize: '0.85rem' }}>
-          <strong style={{ color: 'var(--accent)', display: 'block', marginBottom: '0.5rem' }}>Quick Demo Accounts:</strong>
-          <ul style={{ listStyleType: 'none', paddingLeft: 0, display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-            <li>👤 Customer: <code style={{ color: 'var(--success)' }}>prakashcustom</code> / <code style={{ color: 'var(--success)' }}>prakash@12</code></li>
-            <li>🔑 Admin: <code style={{ color: 'var(--success)' }}>prakash</code> / <code style={{ color: 'var(--success)' }}>prakash@123</code></li>
-          </ul>
-        </div>
+
       </div>
     </div>
   );
