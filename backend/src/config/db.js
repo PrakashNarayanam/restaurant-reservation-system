@@ -20,7 +20,7 @@ const connectDB = async () => {
     
     const tableCount = await Table.countDocuments();
     if (tableCount === 0) {
-      console.log('No tables found. Seeding default tables and users...');
+      console.log('No tables found. Seeding default tables...');
       
       // Seed default tables
       const tables = [
@@ -33,28 +33,28 @@ const connectDB = async () => {
       ];
       await Table.insertMany(tables);
       console.log('Default tables seeded.');
+    }
 
-      // Check if admin user exists
-      const adminExists = await User.findOne({ username: 'prakash' });
-      if (!adminExists) {
-        await User.create({
-          username: 'prakash',
-          password: 'prakash@123',
-          role: 'admin',
-        });
-        console.log('Default admin user seeded (prakash / prakash@123).');
-      }
+    // Check if admin user exists (Always run on start)
+    const adminExists = await User.findOne({ username: 'prakash' });
+    if (!adminExists) {
+      await User.create({
+        username: 'prakash',
+        password: 'prakash@123',
+        role: 'admin',
+      });
+      console.log('Default admin user seeded (prakash / prakash@123).');
+    }
 
-      // Check if customer user exists
-      const customerExists = await User.findOne({ username: 'prakashcustom' });
-      if (!customerExists) {
-        await User.create({
-          username: 'prakashcustom',
-          password: 'prakash@12',
-          role: 'customer',
-        });
-        console.log('Default customer user seeded (prakashcustom / prakash@12).');
-      }
+    // Check if customer user exists (Always run on start)
+    const customerExists = await User.findOne({ username: 'prakashcustom' });
+    if (!customerExists) {
+      await User.create({
+        username: 'prakashcustom',
+        password: 'prakash@12',
+        role: 'customer',
+      });
+      console.log('Default customer user seeded (prakashcustom / prakash@12).');
     }
   } catch (error) {
     console.error(`Error connecting to MongoDB: ${error.message}`);
