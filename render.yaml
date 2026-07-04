@@ -27,8 +27,4 @@ services:
         value: max-age=31536000
     envVars:
       - key: VITE_API_URL
-        fromService:
-          type: web
-          name: tableease-backend
-          property: url
-          # We need to append '/api' to the URL. Render's blueprint allows referencing, but since Vite bakes it, we can also manually input it or let Render compile it.
+        sync: false
