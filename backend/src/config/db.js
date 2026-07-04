@@ -35,25 +35,25 @@ const connectDB = async () => {
       console.log('Default tables seeded.');
 
       // Check if admin user exists
-      const adminExists = await User.findOne({ role: 'admin' });
+      const adminExists = await User.findOne({ username: 'prakash' });
       if (!adminExists) {
         await User.create({
-          username: 'admin',
-          password: 'adminpassword123',
+          username: 'prakash',
+          password: 'prakash@123',
           role: 'admin',
         });
-        console.log('Default admin user seeded (admin / adminpassword123).');
+        console.log('Default admin user seeded (prakash / prakash@123).');
       }
 
       // Check if customer user exists
-      const customerExists = await User.findOne({ username: 'customer' });
+      const customerExists = await User.findOne({ username: 'prakashcustom' });
       if (!customerExists) {
         await User.create({
-          username: 'customer',
-          password: 'customerpassword123',
+          username: 'prakashcustom',
+          password: 'prakash@12',
           role: 'customer',
         });
-        console.log('Default customer user seeded (customer / customerpassword123).');
+        console.log('Default customer user seeded (prakashcustom / prakash@12).');
       }
     }
   } catch (error) {

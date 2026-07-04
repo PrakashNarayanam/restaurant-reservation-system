@@ -20,20 +20,20 @@ const seedData = async () => {
 
     // Seed Users
     const admin = await User.create({
-      username: 'admin',
-      password: 'adminpassword123',
+      username: 'prakash',
+      password: 'prakash@123',
       role: 'admin',
     });
 
     const customer = await User.create({
-      username: 'customer',
-      password: 'customerpassword123',
+      username: 'prakashcustom',
+      password: 'prakash@12',
       role: 'customer',
     });
 
     console.log('Seeded Users:');
-    console.log(`- Admin: admin / adminpassword123`);
-    console.log(`- Customer: customer / customerpassword123`);
+    console.log(`- Admin: prakash / prakash@123`);
+    console.log(`- Customer: prakashcustom / prakash@12`);
 
     // Seed Tables
     const tables = [
