@@ -15,9 +15,8 @@ services:
         sync: false
 
   # Frontend Static Site
-  - type: web
+  - type: static
     name: tableease-frontend
-    env: static
     rootDir: frontend
     buildCommand: npm install --legacy-peer-deps && npm run build
     publishDir: dist
